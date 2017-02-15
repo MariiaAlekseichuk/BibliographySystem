@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge;"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+    <base href="/"/>
+    <title>Bibliography system</title>
+
+    <script src="resources/libs/angular.min.js"></script>
+    <script src="resources/libs/angular-route.min.js"></script>
+    <script src="resources/libs/angular-ui-router.min.js"></script>
+</head>
+
+<body ng-app="BibliographySystemApp">
+
+<div>
+    Index page
+    <a ui-sref="login">Login page</a>
+</div>
+
+<div ui-view=""></div>
+
+<script src="resources/js/app.js"></script>
+<script src="resources/js/routeConfig.js"></script>
+<script src="resources/js/controllers/LoginController.js"></script>
+
+</body>
+</html>
