@@ -12,10 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping(Paths.LOGIN)
 public class LoginController {
-
     @RequestMapping(Methods.LAYOUT)
     public String getLoginPartialPage(ModelMap modelMap) {
         return (Paths.LOGIN + Methods.LAYOUT);
     }
-
 }

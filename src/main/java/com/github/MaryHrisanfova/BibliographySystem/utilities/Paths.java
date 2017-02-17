@@ -6,4 +6,6 @@ package com.github.MaryHrisanfova.BibliographySystem.utilities;
 public class Paths {
     public static final String ROOT_PAGE = "*";
     public static final String LOGIN = "/login";
+    public static final String BOOKS = "/books";
+    public static final String BOOK = "/book";
 }

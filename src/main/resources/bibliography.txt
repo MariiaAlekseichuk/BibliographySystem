@@ -1,0 +1,16 @@
+[
+{"id":"1","name":"Совершенный код. Мастер-класс","author":"Стив Макконелл","year_of_publishing":"1993","number_of_pages":"400"},
+{"id":"2","name":"Изучаем Perl","author":"Рэндал Л. Шварц","year_of_publishing":"2009","number_of_pages":"397"},
+{"id":"3","name":"Шаблоны корпоративных приложений","author":"Мартин Фаулер","year_of_publishing":"2012","number_of_pages":"544"},
+{"id":"4","name":"NoSQL: новая методология разработки нереляционных баз данных","author":"Мартин Фаулер","year_of_publishing":"2013","number_of_pages":"192"},
+{"id":"5","name":"Рефакторинг. Улучшение существующего кода","author":"Мартин Фаулер","year_of_publishing":"2008","number_of_pages":"301"},
+{"id":"6","name":"UML. Основы. Краткое руководство по унифицированному языку моделирования","author":"Кендалл Скотт.","year_of_publishing":"2012","number_of_pages":"189"},
+{"id":"7","name":"Java 8. Полное руководство","author":"Герберт Шилдт","year_of_publishing":"2007","number_of_pages":"702"},
+{"id":"8","name":"Справочник программиста по C/C++","author":"Герберт Шилдт","year_of_publishing":"2006","number_of_pages":"432"},
+{"id":"9","name":"Сто лет одиночества","author":"Габриэль Гарсиа Маркес","year_of_publishing":"1967","number_of_pages":"708"},
+{"id":"10","name":"Шляпа волшебника","author":"Туве Янссон","year_of_publishing":"1949","number_of_pages":"150"},
+{"id":"11","name":"Дочь скульптора","author":"Туве Янссон","year_of_publishing":"1968","number_of_pages":"206"},
+{"id":"12","name":"Приключения Хорьков","author":"Ричард Бах","year_of_publishing":"2005","number_of_pages":"389"},
+{"id":"13","name":"Человек, который смеётся","author":"Виктор Гюго","year_of_publishing":"1869","number_of_pages":"600"},
+{"id":"14","name":"Макбет","author":"Вильям Шекспир","year_of_publishing":"1603","number_of_pages":"278"}
+]

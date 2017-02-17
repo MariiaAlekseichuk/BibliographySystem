@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="page-header">
+        <h3>List of books
+            <small>
+                <span class="badge">{{books.length}}</span>
+            </small>
+        </h3>
+    </div>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Book name</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="b in books | orderBy : 'bookName'">
+            <td>{{$index+1}}</td>
+            <td><a href="#/book/{{b.id}}" ng-click="showBookDetails(b.id)">{{ b.bookName }}</a></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
