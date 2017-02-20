@@ -15,16 +15,18 @@ import java.util.List;
  */
 @Service
 public class BooksService {
+    private static final String BOOKS_TEXT_FILE = "bibliography.txt";
+
     public List<Book> getAllBooksNames() {
         ClassLoader classLoader = getClass().getClassLoader();
-        File bookListFile = new File(classLoader.getResource("bibliography.txt").getFile());
+        File bookListFile = new File(classLoader.getResource(BOOKS_TEXT_FILE).getFile());
         String jsonData = FileReader.readFile(bookListFile.getPath());
         return JSONReader.selectFiled("id", "name", jsonData);
     }
 
     public BookDetailed getBookById(long id) {
         ClassLoader classLoader = getClass().getClassLoader();
-        File bookListFile = new File(classLoader.getResource("bibliography.txt").getFile());
+        File bookListFile = new File(classLoader.getResource(BOOKS_TEXT_FILE).getFile());
         String jsonData = FileReader.readFile(bookListFile.getPath());
         ObjectMapper mapper = new ObjectMapper();
         return JSONReader.selectObjectById(id, jsonData);

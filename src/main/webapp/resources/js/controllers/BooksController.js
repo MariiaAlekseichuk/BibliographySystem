@@ -9,9 +9,11 @@
             })
             .success(function(data){
                     $scope.books = data;
+                    if(data = null)
+                        location.path("errors/403");
             })
             .error(function(err){
-                    console.log(err);
+                   location.path("errors/403");
             })
         }
 
