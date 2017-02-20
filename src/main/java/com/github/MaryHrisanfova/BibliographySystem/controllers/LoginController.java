@@ -6,6 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
@@ -16,9 +19,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
 import java.nio.charset.Charset;
+import java.security.Principal;
 import java.util.Base64;
-
-import static com.github.MaryHrisanfova.BibliographySystem.utilities.Params.USER_NAME;
 
 /**
  * @author Mariia_Khrisanfova
@@ -39,19 +41,19 @@ public class LoginController {
     InMemoryUserDetailsManager inMemoryUserDetailsManager;
 
     @RequestMapping(Methods.LAYOUT)
-    public String getLoginPartialPage(ModelMap modelMap) {
+    public String getLoginLayoutPage(ModelMap modelMap) {
         return (Paths.LOGIN + Methods.LAYOUT);
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "/user", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<String> findUser(HttpServletRequest request) {
+    public ResponseEntity<String> findUser(HttpServletRequest request, Authentication authentication, Principal principal) {
         HttpStatus httpStatus = HttpStatus.FORBIDDEN;
         final String authorization = request.getHeader(HEADER_AUTHORIZATION);
+
         if (authorization != null && authorization.startsWith(BASIC)) {
             try {
-                UserDetails user = inMemoryUserDetailsManager.loadUserByUsername(getUserNameFromCredentials(authorization));
+                UserDetails user = inMemoryUserDetailsManager.loadUserByUsername(principal.getName());
                 if (user.getPassword().equals(getPasswordFromCredentials(authorization))) {
-                    request.getSession().setAttribute(USER_NAME, user.getUsername());
                     httpStatus = HttpStatus.OK;
                 }
             } catch (UsernameNotFoundException e) {
@@ -68,13 +70,4 @@ public class LoginController {
         values = credentials.split(COLON, LIMIT_OF_PARTS);
         return values[INDEX_OF_PASSWORD];
     }
-
-    private String getUserNameFromCredentials(String authorization) {
-        String[] values;
-        String base64Credentials = authorization.substring(BASIC.length()).trim();
-        String credentials = new String(Base64.getDecoder().decode(base64Credentials), Charset.forName(ENCODING_UTF_8));
-        values = credentials.split(COLON, LIMIT_OF_PARTS);
-        return values[INDEX_OF_NAME];
-    }
-
 }

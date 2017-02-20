@@ -14,8 +14,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
-import static com.github.MaryHrisanfova.BibliographySystem.utilities.Params.USER_NAME;
-
 /**
  * @author Mariia_Khrisanfova
  */
@@ -28,10 +26,7 @@ public class BooksController {
 
     @RequestMapping(Methods.LAYOUT)
     public String getBooksLayoutPage(HttpServletRequest request) {
-
-        if (request.getSession().getAttribute(USER_NAME) != null) {
-            return (Paths.BOOKS + Methods.LAYOUT);
-        } else return "errors/403";
+        return (Paths.BOOKS + Methods.LAYOUT);
     }
 
     @RequestMapping(Methods.BOOK_DETAILS)
@@ -43,8 +38,6 @@ public class BooksController {
     public
     @ResponseBody
     List<Book> getAllBooksNames(HttpServletRequest request) throws JSONException {
-        if (request.getSession().getAttribute(USER_NAME) != null) {
-            return booksService.getAllBooksNames();
-        } else return null;
+        return booksService.getAllBooksNames();
     }
 }

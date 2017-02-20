@@ -1,5 +1,6 @@
 package com.github.MaryHrisanfova.BibliographySystem.config;
 
+import com.github.MaryHrisanfova.BibliographySystem.utilities.CustomBasicAuthenticationEntryPoint;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -18,6 +19,7 @@ import java.util.Properties;
 public class AppConfig {
 
     private static final String USERS_TEXT_FILE = "classpath:users.properties";
+    private static final String SPRING_SECURITY_REALM_NAME = "RealmName";
 
     @Value(USERS_TEXT_FILE)
     private Resource users;
@@ -32,5 +34,10 @@ public class AppConfig {
             e.printStackTrace();
             return null;
         }
+    }
+
+    @Bean
+    public CustomBasicAuthenticationEntryPoint customBasicAuthenticationEntryPoint() {
+        return new CustomBasicAuthenticationEntryPoint(SPRING_SECURITY_REALM_NAME);
     }
 }

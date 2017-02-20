@@ -26,6 +26,7 @@ public class AppInitializer implements WebApplicationInitializer {
     private void configureRootContext(ServletContext servletContext) {
         AnnotationConfigWebApplicationContext rootContext = new AnnotationConfigWebApplicationContext();
         rootContext.register(AppConfig.class);
+        rootContext.register(SecurityConfig.class);
         servletContext.addListener(new ContextLoaderListener(rootContext));
     }
 

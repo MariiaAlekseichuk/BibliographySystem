@@ -2,7 +2,12 @@
 (function() {
     app.controller('LoginController', function($rootScope, $http, $location, $scope) {
 
+$scope.credentials = {};
+    $scope.credentials.username = "rob"
+    $scope.credentials.password = "123"
+
     $scope.login = function() {
+     console.log("send...");
         var headers = $scope.credentials ? {authorization: "Basic " +
                         btoa($scope.credentials.username +
                         ":" +
@@ -12,7 +17,7 @@
             method: "POST",
             headers:headers
         })
-        .success(function(){
+        .success(function(data){
             $location.path("/books");
         })
         .error(function(err){

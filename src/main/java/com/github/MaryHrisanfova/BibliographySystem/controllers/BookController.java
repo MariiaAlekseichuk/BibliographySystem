@@ -14,8 +14,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 
-import static com.github.MaryHrisanfova.BibliographySystem.utilities.Params.USER_NAME;
-
 /**
  * @author Mariia_Khrisanfova
  */
@@ -26,10 +24,8 @@ public class BookController {
     private BooksService booksService;
 
     @RequestMapping("/{bookId}")
-    public String getBooksLayoutPage(HttpServletRequest request) {
-        if (request.getSession().getAttribute(USER_NAME) != null) {
-            return (Paths.BOOKS + Methods.BOOK_DETAILS);
-        } else return "errors/403";
+    public String getBookLayoutPage(HttpServletRequest request) {
+        return (Paths.BOOKS + Methods.BOOK_DETAILS);
     }
 
     @RequestMapping(method = RequestMethod.GET, value = Methods.SHOW_BOOK_DETAILS)
