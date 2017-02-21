@@ -16,6 +16,7 @@ import java.io.IOException;
 public class CustomBasicAuthenticationEntryPoint extends BasicAuthenticationEntryPoint {
     private static final String SPRING_SECURITY_REALM_NAME = "RealmName";
     private static final String APPLICATION_JSON = "application/json";
+    private static final String AUTHENTICATION_UNSUCCESSFUL = "AUTHENTICATION_UNSUCCESSFUL";
 
     public CustomBasicAuthenticationEntryPoint(String realmName) {
         setRealmName(realmName);
@@ -30,7 +31,7 @@ public class CustomBasicAuthenticationEntryPoint extends BasicAuthenticationEntr
                          final AuthenticationException authenticationException) throws IOException, ServletException {
         if (authenticationException instanceof BadCredentialsException) {
             response.setContentType(APPLICATION_JSON);
-            new ObjectMapper().writeValue(response.getWriter(), new AuthenticationResponse());
+            new ObjectMapper().writeValue(response.getWriter(), AUTHENTICATION_UNSUCCESSFUL);
             return;
         }
 

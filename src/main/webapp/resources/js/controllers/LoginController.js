@@ -7,11 +7,7 @@ $scope.credentials = {};
     $scope.credentials.password = "123"
 
     $scope.login = function() {
-     console.log("send...");
-        var headers = $scope.credentials ? {authorization: "Basic " +
-                        btoa($scope.credentials.username +
-                        ":" +
-                        $scope.credentials.password)} : {};
+        var headers = $scope.credentials ? {authorization: "Basic " + btoa($scope.credentials.username +":" +$scope.credentials.password)} : {};
         $http({
             url: './login/user',
             method: "POST",
