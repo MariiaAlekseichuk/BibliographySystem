@@ -6,7 +6,7 @@ Used technologies are:
 - Angular, JavaScript, HTML5 and CSS on the front-side;
 - Maven as build automation tool
 
-Running the project:
+##Running the project:
 
 Run Local (Embedded Tomcat):
 - execute: mvn tomcat7:run
