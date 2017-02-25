@@ -5,7 +5,7 @@
     <artifactId>BibliographySystem</artifactId>
     <packaging>war</packaging>
     <version>1.0-SNAPSHOT</version>
-    <name>BibliographySystem Maven Webapp</name>
+    <name>BibliographySystem</name>
     <url>http://maven.apache.org</url>
 
     <properties>
@@ -68,7 +68,7 @@
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-web</artifactId>
-            <version>4.1.1.RELEASE</version>
+            <version>${spring.securiry}</version>
         </dependency>
 
     </dependencies>
@@ -90,12 +90,9 @@
                 <artifactId>tomcat7-maven-plugin</artifactId>
                 <version>2.2</version>
                 <configuration>
-                    <url>http://localhost:8080</url>
                     <port>8080</port>
-                    <path>/</path>
+                    <path>/BibliographySystem</path>
                     <uriEncoding>UTF-8</uriEncoding>
-                    <username>admin</username>
-                    <password>admin</password>
                 </configuration>
             </plugin>
 

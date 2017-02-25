@@ -38,6 +38,7 @@ public class ThymeleafConfig {
     @Bean
     public ThymeleafViewResolver thymeleafViewResolver() {
         ThymeleafViewResolver resolver = new ThymeleafViewResolver();
+        resolver.setCharacterEncoding(CHARACTER_ENCODING);
         resolver.setTemplateEngine(templateEngine());
         return resolver;
     }
