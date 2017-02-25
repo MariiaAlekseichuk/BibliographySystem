@@ -7,6 +7,7 @@ Used technologies are:
 - Maven as build automation tool
 
 Running the project:
+
 Run Local (Embedded Tomcat):
 - execute: mvn tomcat7:run
 - Then open the URL: http://localhost:8080/BibliographySystem/
